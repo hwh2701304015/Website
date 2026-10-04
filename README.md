@@ -28,7 +28,7 @@ Static website package for `amazemend.com`, focused on AmazeMend Video Repair fo
 - Domain: `amazemend.com`
 - Product: AmazeMend Video Repair for Windows
 - 1-month license: `$30.95`
-- Quarterly license: `$60.95`
+- 1-year license: `$60.95`
 - Lifetime license: `$75.95`
 
 ## Launch Checklist

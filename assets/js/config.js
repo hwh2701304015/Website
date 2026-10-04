@@ -14,7 +14,6 @@ window.SITE_CONFIG = {
   fileSize: "124 MB",
   prices: {
     monthly: "$30.95",
-    quarterly: "$60.95",
     yearly: "$60.95",
     lifetime: "$75.95"
   },

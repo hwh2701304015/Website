@@ -16,7 +16,6 @@
     address: cfg.address || 'Your address',
     supportHours: cfg.supportHours || 'Mon–Fri, 09:00–18:00 UTC+8',
     priceMonthly: cfg.prices?.monthly || '$30.95',
-    priceQuarterly: cfg.prices?.quarterly || '$60.95',
     priceYearly: cfg.prices?.yearly || '$60.95',
     priceLifetime: cfg.prices?.lifetime || '$75.95'
   };
