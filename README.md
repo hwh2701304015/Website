@@ -34,7 +34,7 @@ Static website package for `amazemend.com`, focused on AmazeMend Video Repair fo
 ## Launch Checklist
 
 1. Upload the Windows installer and set `downloadUrl` in `assets/js/config.js`.
-2. Connect Paddle checkout and set `paddleCheckoutUrl`.
+2. Connect Paddle checkout by setting `paddle.clientToken` and plan price IDs in `assets/js/config.js`.
 3. Connect the license client/server activation flow.
 4. Confirm the support and sales mailboxes:
    - `support@amazemend.com`

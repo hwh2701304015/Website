@@ -52,12 +52,45 @@
   });
   $all('[data-buy]').forEach(el => {
     el.addEventListener('click', function (e) {
-      if (!cfg.paddleCheckoutUrl || cfg.paddleCheckoutUrl === '#') {
+      const plan = el.dataset.plan;
+      const paddleCfg = cfg.paddle || {};
+      const priceId = paddleCfg.prices?.[plan];
+      const hasPaddleConfig = window.Paddle
+        && paddleCfg.clientToken
+        && !paddleCfg.clientToken.startsWith('replace-with-')
+        && priceId
+        && !priceId.startsWith('replace-with-');
+
+      if (hasPaddleConfig) {
         e.preventDefault();
-        showToast('Checkout is not connected yet. Update paddleCheckoutUrl in assets/js/config.js after Paddle setup.');
-      } else {
-        el.href = cfg.paddleCheckoutUrl;
+        try {
+          if (paddleCfg.environment && paddleCfg.environment !== 'production') {
+            Paddle.Environment.set(paddleCfg.environment);
+          }
+          if (!window.__amazemendPaddleReady) {
+            Paddle.Initialize({ token: paddleCfg.clientToken });
+            window.__amazemendPaddleReady = true;
+          }
+          Paddle.Checkout.open({
+            items: [{ priceId, quantity: 1 }],
+            customData: {
+              product: 'amazemend-video-repair',
+              plan
+            }
+          });
+        } catch (error) {
+          showToast('Unable to open checkout. Please try again or contact support.');
+        }
+        return;
       }
+
+      if (cfg.paddleCheckoutUrl && cfg.paddleCheckoutUrl !== '#') {
+        el.href = cfg.paddleCheckoutUrl;
+        return;
+      }
+
+      e.preventDefault();
+      showToast('Checkout is not connected yet. Update Paddle settings in assets/js/config.js.');
     });
   });
 

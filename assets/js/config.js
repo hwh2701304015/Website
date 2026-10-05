@@ -8,6 +8,15 @@ window.SITE_CONFIG = {
   downloadUrl: "#",
   downloadUrlMac: "#",
   paddleCheckoutUrl: "#",
+  paddle: {
+    environment: "sandbox",
+    clientToken: "test_1c69cfc851b542f4b27c2414a2a",
+    prices: {
+      monthly: "pri_01m44m18zvdtjxat8tqxh1htzj",
+      yearly: "pri_01m44mctj8hf4x907bn184e6d0",
+      lifetime: "pri_01m44meywg5qq7bf1k1k98a75z"
+    }
+  },
   comparisonUrl: "video-repair.html",
   version: "1.0.0",
   releaseDate: "2026-09-30",
