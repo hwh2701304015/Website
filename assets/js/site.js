@@ -31,22 +31,30 @@
     if (el.tagName === 'A') el.href = `mailto:${textMap.salesEmail}`;
   });
   $all('[data-download]').forEach(el => {
+    if (cfg.downloadUrl && cfg.downloadUrl !== '#') {
+      el.href = cfg.downloadUrl;
+    }
     el.addEventListener('click', function (e) {
       if (!cfg.downloadUrl || cfg.downloadUrl === '#') {
         e.preventDefault();
         showToast('Download URL is not configured yet. Update assets/js/config.js after uploading your installer.');
       } else {
-        el.href = cfg.downloadUrl;
+        e.preventDefault();
+        window.location.assign(cfg.downloadUrl);
       }
     });
   });
   $all('[data-download-mac]').forEach(el => {
+    if (cfg.downloadUrlMac && cfg.downloadUrlMac !== '#') {
+      el.href = cfg.downloadUrlMac;
+    }
     el.addEventListener('click', function (e) {
       if (!cfg.downloadUrlMac || cfg.downloadUrlMac === '#') {
         e.preventDefault();
         showToast('macOS download is not configured yet.');
       } else {
-        el.href = cfg.downloadUrlMac;
+        e.preventDefault();
+        window.location.assign(cfg.downloadUrlMac);
       }
     });
   });

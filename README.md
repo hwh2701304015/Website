@@ -47,6 +47,36 @@ Static website package for `amazemend.com`, focused on AmazeMend Video Repair fo
 - `download.amazemend.com` - Cloudflare R2 or another installer hosting endpoint
 - `api.amazemend.com` - Cloudflare Workers + D1 for license activation and Paddle webhooks
 
+## Deploy
+
+Deploy the static site to Cloudflare Pages:
+
+```powershell
+.\deploy.ps1 -ProjectName amazemend
+```
+
+Update the Windows installer URL and deploy in one command:
+
+```powershell
+.\deploy.ps1 -ProjectName amazemend -DownloadUrl "https://download.amazemend.com/installers/AmazeMendSetup-1.0.0.exe"
+```
+
+If Paddle values still contain placeholders and you only want to test Pages
+deployment, pass `-SkipPlaceholderCheck`.
+
+## Installer Download Flow
+
+The installer should be built by the Qt client package script, uploaded to a
+download host such as Cloudflare R2, then written to `downloadUrl` in
+`assets/js/config.js`. The website's Free Download buttons use that URL.
+
+From the client project:
+
+```powershell
+cd ..\AmazeMend\qt_mp4_repair_client
+.\publish-installer.ps1 -AppVersion 1.0.0 -Bucket amazemend-downloads -PublicBaseUrl "https://download.amazemend.com" -DeployWebsite
+```
+
 ## Notes
 
 - This is a static front-end package.

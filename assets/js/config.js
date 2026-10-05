@@ -1,11 +1,11 @@
-window.SITE_CONFIG = {
+﻿window.SITE_CONFIG = {
   brandName: "AmazeMend",
   suiteName: "AmazeMend Repair Suite",
   productName: "AmazeMend Video Repair for Windows",
   domain: "amazemend.com",
   supportEmail: "support@amazemend.com",
   salesEmail: "sales@amazemend.com",
-  downloadUrl: "#",
+  downloadUrl: "https://download.amazemend.com/installers/AmazeMendSetup-1.0.0.exe",
   downloadUrlMac: "#",
   paddleCheckoutUrl: "#",
   paddle: {
@@ -28,5 +28,8 @@ window.SITE_CONFIG = {
   },
   companyName: "AmazeMend",
   address: "Shenzhen, Guangdong, China",
-  supportHours: "Mon–Fri, 09:00–18:00 UTC+8"
+  supportHours: "Mon-Fri, 09:00-18:00 UTC+8"
 };
+
+
+
