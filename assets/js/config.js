@@ -21,7 +21,8 @@
   version: "1.0.0",
   releaseDate: "2026-09-30",
   legalUpdatedDate: "2026-10-09",
-  fileSize: "124 MB",
+  fileSize: "31 MB",
+  sha256: "6B2EF578A385C116A2DCACE5FC78711D0A868E488FCB0209600EAC4E4004AE37",
   prices: {
     monthly: "$30.95",
     yearly: "$60.95",
