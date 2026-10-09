@@ -11,9 +11,10 @@
     salesEmail: cfg.salesEmail || 'sales@amazemend.com',
     version: cfg.version || '1.0.0',
     releaseDate: cfg.releaseDate || '2026-09-30',
-    fileSize: cfg.fileSize || 'Coming soon',
+    legalUpdatedDate: cfg.legalUpdatedDate || '2026-10-09',
+    fileSize: cfg.fileSize || '124 MB',
     company: cfg.companyName || 'AmazeMend',
-    address: cfg.address || 'Your address',
+    address: cfg.address || 'Shenzhen, Guangdong, China',
     supportHours: cfg.supportHours || 'Mon–Fri, 09:00–18:00 UTC+8',
     priceMonthly: cfg.prices?.monthly || '$30.95',
     priceYearly: cfg.prices?.yearly || '$60.95',
@@ -21,7 +22,8 @@
   };
 
   Object.entries(textMap).forEach(([key, value]) => {
-    $all(`[data-${key}]`).forEach(el => el.textContent = value);
+    const attribute = key.replace(/[A-Z]/g, letter => `-${letter.toLowerCase()}`);
+    $all(`[data-${attribute}]`).forEach(el => el.textContent = value);
   });
 
   $all('[data-support-email]').forEach(el => {
@@ -37,7 +39,7 @@
     el.addEventListener('click', function (e) {
       if (!cfg.downloadUrl || cfg.downloadUrl === '#') {
         e.preventDefault();
-        showToast('Download URL is not configured yet. Update assets/js/config.js after uploading your installer.');
+        showToast('The download is temporarily unavailable. Please contact support@amazemend.com for help.');
       } else {
         e.preventDefault();
         window.location.assign(cfg.downloadUrl);
@@ -51,7 +53,7 @@
     el.addEventListener('click', function (e) {
       if (!cfg.downloadUrlMac || cfg.downloadUrlMac === '#') {
         e.preventDefault();
-        showToast('macOS download is not configured yet.');
+        showToast('AmazeMend is currently available for Windows only.');
       } else {
         e.preventDefault();
         window.location.assign(cfg.downloadUrlMac);
@@ -72,8 +74,8 @@
       if (hasPaddleConfig) {
         e.preventDefault();
         try {
-          if (paddleCfg.environment && paddleCfg.environment !== 'production') {
-            Paddle.Environment.set(paddleCfg.environment);
+          if (paddleCfg.environment === 'sandbox') {
+            Paddle.Environment.set('sandbox');
           }
           if (!window.__amazemendPaddleReady) {
             Paddle.Initialize({ token: paddleCfg.clientToken });
@@ -98,7 +100,7 @@
       }
 
       e.preventDefault();
-      showToast('Checkout is not connected yet. Update Paddle settings in assets/js/config.js.');
+      showToast('Checkout is temporarily unavailable. Please contact sales@amazemend.com for help.');
     });
   });
 

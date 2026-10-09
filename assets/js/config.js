@@ -9,17 +9,18 @@
   downloadUrlMac: "#",
   paddleCheckoutUrl: "#",
   paddle: {
-    environment: "sandbox",
-    clientToken: "test_1c69cfc851b542f4b27c2414a2a",
+    environment: "live",
+    clientToken: "live_daa7e44cb340698569257e60390",
     prices: {
-      monthly: "pri_01m44m18zvdtjxat8tqxh1htzj",
-      yearly: "pri_01m44mctj8hf4x907bn184e6d0",
-      lifetime: "pri_01m44meywg5qq7bf1k1k98a75z"
+      monthly: "pri_01m47krrred7gr5q2rwj4c60ae",
+      yearly: "pri_01m47kwasp8hrppksebx85achv",
+      lifetime: "pri_01m47kyasabc66vdd39nd770aw"
     }
   },
   comparisonUrl: "video-repair.html",
   version: "1.0.0",
   releaseDate: "2026-09-30",
+  legalUpdatedDate: "2026-10-09",
   fileSize: "124 MB",
   prices: {
     monthly: "$30.95",

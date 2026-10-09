@@ -39,7 +39,7 @@ Static website package for `amazemend.com`, focused on AmazeMend Video Repair fo
 4. Confirm the support and sales mailboxes:
    - `support@amazemend.com`
    - `sales@amazemend.com`
-5. Review privacy policy, terms, refund language, and company entity details before public launch.
+5. Confirm that the legal operator name and contact address shown in the legal pages match the merchant account before public launch.
 
 ## Recommended Deployment Mapping
 
@@ -80,5 +80,5 @@ cd ..\AmazeMend\qt_mp4_repair_client
 ## Notes
 
 - This is a static front-end package.
-- Buy and download buttons remain disabled until URLs are configured in `assets/js/config.js`.
-- The support form is presentation-only; connect it to a backend or keep the email CTA as the primary support path.
+- Windows downloads use the configured installer URL, and paid plans open Paddle Checkout.
+- Support requests use the public support email address; the site does not display a non-functional web form.
