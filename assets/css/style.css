@@ -492,7 +492,13 @@ button, input, textarea, select { font: inherit; }
   width: 46px; height: 46px; display: grid; place-items: center; border-radius: 15px;
   color: var(--primary); font-size: 19px; font-weight: 900; background: linear-gradient(135deg, rgba(79,103,255,.13), rgba(0,184,169,.13));
 }
-.section-disclaimer { margin: 24px 0 0; color: #65768c; text-align: center; font-size: 16px; line-height: 1.7; }
+.repair-scope-note {
+  display: flex; align-items: flex-start; gap: 14px; width: 100%; margin: 26px 0 0; padding: 16px 20px;
+  color: #40516b; font-size: 17px; line-height: 1.65; text-align: left;
+  background: linear-gradient(135deg, rgba(79,103,255,.07), rgba(0,184,169,.07));
+  border: 1px solid rgba(79,103,255,.18); border-left: 4px solid var(--primary); border-radius: 16px;
+}
+.repair-scope-note strong { flex: 0 0 auto; color: #24407a; font-size: 16px; }
 .repair-demo-teaser {
   display: grid; grid-template-columns: minmax(240px, 300px) minmax(0, 1fr) auto; gap: 28px; align-items: center; width: 100%; margin: 28px 0 0;
   padding: 18px; color: inherit; background: #fff; border: 1px solid var(--line); border-radius: 22px; box-shadow: var(--shadow-md);
@@ -667,6 +673,7 @@ button, input, textarea, select { font: inherit; }
   .product-stage { padding: 12px 0 0; }
   .scenario-media { padding: 9px; border-radius: 22px; }
   .scenario-media img { border-radius: 15px; }
+  .repair-scope-note { display: grid; gap: 6px; padding: 15px 16px; font-size: 16px; }
   .repair-demo-teaser { grid-template-columns: 1fr; padding: 10px; }
   .repair-demo-teaser > b { display: none; }
   .repair-demo-teaser > span:not(.repair-demo-thumb) { padding: 4px 8px 10px; }
