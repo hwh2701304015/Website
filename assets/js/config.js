@@ -5,7 +5,7 @@
   domain: "amazemend.com",
   supportEmail: "support@amazemend.com",
   salesEmail: "sales@amazemend.com",
-  downloadUrl: "https://download.amazemend.com/installers/AmazeMendSetup-1.0.0.exe",
+  downloadUrl: "https://download.amazemend.com/installers/AmazeMendSetup-1.0.0.exe?v=20261010",
   downloadUrlMac: "#",
   paddleCheckoutUrl: "#",
   paddle: {
