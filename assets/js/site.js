@@ -153,6 +153,85 @@
     timer = setTimeout(() => toast.classList.remove('show'), 3000);
   }
 
+  async function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+      return;
+    }
+
+    const input = document.createElement('textarea');
+    input.value = text;
+    input.setAttribute('readonly', '');
+    input.style.position = 'fixed';
+    input.style.opacity = '0';
+    document.body.appendChild(input);
+    input.select();
+    const copied = document.execCommand('copy');
+    input.remove();
+    if (!copied) throw new Error('Copy failed');
+  }
+
+  $all('[data-copy-support-email]').forEach(button => {
+    button.addEventListener('click', async () => {
+      try {
+        await copyText(textMap.supportEmail);
+        showToast(`Support email copied: ${textMap.supportEmail}`);
+      } catch (error) {
+        showToast(`Please copy this address: ${textMap.supportEmail}`);
+      }
+    });
+  });
+
+  const supportForm = document.querySelector('[data-support-form]');
+  const supportVersionInput = document.querySelector('[data-support-version-input]');
+  if (supportVersionInput && !supportVersionInput.value) {
+    supportVersionInput.value = textMap.version;
+  }
+
+  function buildSupportRequest(form) {
+    const data = new FormData(form);
+    const value = name => String(data.get(name) || '').trim();
+    const topic = value('topic') || 'Support request';
+    const details = [
+      `Name: ${value('name')}`,
+      `Reply email: ${value('email')}`,
+      `Topic: ${topic}`,
+      `Order email or order ID: ${value('order') || 'Not provided'}`,
+      `Windows version: ${value('windows') || 'Not provided'}`,
+      `AmazeMend version: ${value('version') || 'Not provided'}`,
+      '',
+      'Problem description:',
+      value('message')
+    ];
+    return {
+      subject: `AmazeMend Support Request - ${topic}`,
+      body: details.join('\n')
+    };
+  }
+
+  if (supportForm) {
+    supportForm.addEventListener('submit', event => {
+      event.preventDefault();
+      if (!supportForm.reportValidity()) return;
+      const request = buildSupportRequest(supportForm);
+      window.location.href = `mailto:${textMap.supportEmail}?subject=${encodeURIComponent(request.subject)}&body=${encodeURIComponent(request.body)}`;
+    });
+
+    const copyRequestButton = document.querySelector('[data-copy-support-request]');
+    if (copyRequestButton) {
+      copyRequestButton.addEventListener('click', async () => {
+        if (!supportForm.reportValidity()) return;
+        const request = buildSupportRequest(supportForm);
+        try {
+          await copyText(`${request.subject}\n\n${request.body}`);
+          showToast('Support request copied. Paste it into an email to our support address.');
+        } catch (error) {
+          showToast('Unable to copy. Please select and copy the form details manually.');
+        }
+      });
+    }
+  }
+
   const year = document.querySelector('[data-year]');
   if (year) year.textContent = new Date().getFullYear();
 })();

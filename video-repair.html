@@ -92,6 +92,39 @@
     </div>
   </section>
 
+  <section class="section repair-proof-section" id="repair-demo">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">Actual repair test</span>
+        <h2>Watch an unreadable MP4 become playable</h2>
+        <p>This recorded test uses an actual damaged file named damage.mp4. Before repair, the MP4 container could not be opened. AmazeMend rebuilt a playable output that could be previewed and saved.</p>
+      </div>
+      <div class="repair-proof-layout">
+        <article class="repair-video-card repair-workflow-video">
+          <div class="repair-proof-heading"><span class="proof-status proof-status-demo">Workflow</span><div><h3>Complete AmazeMend repair demonstration</h3><p>Add the damaged file, start repair, preview the result, and save the repaired video.</p></div></div>
+          <video controls playsinline preload="metadata" poster="assets/img/repair-demo-poster.jpg" aria-label="Recorded AmazeMend repair workflow for damage.mp4">
+            <source src="assets/video/amazemend-repair-demo.mp4" type="video/mp4">
+            Your browser does not support HTML video. You can <a href="assets/video/amazemend-repair-demo.mp4">download the repair demonstration</a> instead.
+          </video>
+        </article>
+        <div class="repair-evidence-stack">
+          <article class="repair-state-card repair-state-before">
+            <div class="repair-proof-heading"><span class="proof-status proof-status-before">Before</span><div><h3>damage.mp4 was unreadable</h3><p>The damaged 17.65 MB file reported 0 fps and no audio in the app. Independent media inspection returned <code>moov atom not found</code>.</p></div></div>
+            <div class="repair-file-state"><span aria-hidden="true">!</span><div><strong>Playback unavailable</strong><small>The original file could not be decoded or played.</small></div></div>
+          </article>
+          <article class="repair-video-card repair-state-after">
+            <div class="repair-proof-heading"><span class="proof-status proof-status-after">After</span><div><h3>Repaired output plays normally</h3><p>This is a 30-second excerpt from the repaired 11:51 video, encoded as H.264 video with AAC audio.</p></div></div>
+            <video controls playsinline preload="metadata" poster="assets/img/repaired-preview-poster.jpg" aria-label="Thirty-second playback excerpt from the repaired damage.mp4 output">
+              <source src="assets/video/repaired-preview.mp4" type="video/mp4">
+              Your browser does not support HTML video. You can <a href="assets/video/repaired-preview.mp4">download the repaired preview</a> instead.
+            </video>
+          </article>
+        </div>
+      </div>
+      <p class="repair-proof-note"><strong>Test scope:</strong> This is one documented repair example, not a guarantee that every damaged file can be recovered. Results depend on the type and extent of corruption.</p>
+    </div>
+  </section>
+
   <section class="section section-alt">
     <div class="container">
       <div class="section-head center"><span class="eyebrow">Two repair modes</span><h2>Choose the right path for the level of damage</h2><p>Start with the simplest workflow and move to a reference-assisted repair only when needed.</p></div>
@@ -168,7 +201,7 @@
           </span>
           <span data-brand>AmazeMend</span>
         </a>
-        <p>AmazeMend focuses on practical video repair for damaged, unplayable, frozen, and corrupted files.</p>
+        <p>AmazeMend is an independent software brand operated from Shenzhen, Guangdong, China.</p>
       </div>
       <div>
         <h4>Product</h4>
