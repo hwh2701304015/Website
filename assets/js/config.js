@@ -5,7 +5,7 @@
   domain: "amazemend.com",
   supportEmail: "support@amazemend.com",
   salesEmail: "sales@amazemend.com",
-  downloadUrl: "https://download.amazemend.com/installers/AmazeMendSetup-1.0.0.exe?v=20261010",
+  downloadUrl: "https://download.amazemend.com/installers/AmazeMendSetup-1.0.1.exe",
   downloadUrlMac: "#",
   paddleCheckoutUrl: "#",
   paddle: {
@@ -18,11 +18,11 @@
     }
   },
   comparisonUrl: "video-repair.html",
-  version: "1.0.0",
-  releaseDate: "2026-10-10",
+  version: "1.0.1",
+  releaseDate: "2026-10-11",
   legalUpdatedDate: "2026-10-10",
   fileSize: "29.3 MB",
-  sha256: "504BE7FF165C16F220911D8C7AD960DE56A8770E4D4A354337BEF89AAACADCBD",
+  sha256: "2F339120136EA684EE5134BD5B732690FF64C5FD3C0095DD6F944B18FBC795D2",
   prices: {
     monthly: "$30.95",
     yearly: "$60.95",
