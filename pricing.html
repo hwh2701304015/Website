@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -14,7 +14,7 @@
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body class="page-pricing">
 
 <header class="site-header">
   <div class="container">
@@ -60,7 +60,7 @@
 
   <section class="section-tight">
     <div class="container">
-      <div class="notice" style="margin-bottom:18px">All prices are in USD. Applicable taxes are calculated at checkout. Monthly and yearly plans renew automatically until canceled.</div>
+      <div class="notice price-notice">All prices are in USD. Applicable taxes are calculated at checkout. Monthly and yearly plans renew automatically until canceled.</div>
       <div class="pricing-grid">
         <div class="price-card">
         <div class="plan">Free Preview</div>
@@ -124,10 +124,11 @@
         <h2>Plan comparison</h2>
         <p>Compare preview, export, updates, and support across all available plans.</p>
       </div>
+      <p class="mobile-scroll-hint">Swipe horizontally to compare all plans.</p>
       <div class="table-wrap">
         <table class="compare-table">
           <thead>
-            <tr><th>Feature</th><th>Free Preview</th><th>1-Month</th><th>1-Year</th><th>Lifetime</th></tr>
+            <tr><th scope="col">Feature</th><th scope="col">Free Preview</th><th scope="col">1-Month</th><th scope="col">1-Year</th><th scope="col">Lifetime</th></tr>
           </thead>
           <tbody>
             <tr><td>Repair damaged video</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
