@@ -155,19 +155,31 @@
 
   async function copyText(text) {
     if (navigator.clipboard && window.isSecureContext) {
-      await navigator.clipboard.writeText(text);
-      return;
+      try {
+        await navigator.clipboard.writeText(text);
+        return;
+      } catch (error) {
+        // Some browsers expose the API but block it by permission policy.
+        // Continue with the selection-based fallback while the click is active.
+      }
     }
 
     const input = document.createElement('textarea');
     input.value = text;
     input.setAttribute('readonly', '');
     input.style.position = 'fixed';
+    input.style.left = '-9999px';
     input.style.opacity = '0';
     document.body.appendChild(input);
+    input.focus();
     input.select();
-    const copied = document.execCommand('copy');
-    input.remove();
+    input.setSelectionRange(0, input.value.length);
+    let copied = false;
+    try {
+      copied = document.execCommand('copy');
+    } finally {
+      input.remove();
+    }
     if (!copied) throw new Error('Copy failed');
   }
 
@@ -175,6 +187,9 @@
     button.addEventListener('click', async () => {
       try {
         await copyText(textMap.supportEmail);
+        const originalText = button.textContent;
+        button.textContent = 'Email copied';
+        window.setTimeout(() => { button.textContent = originalText; }, 2200);
         showToast(`Support email copied: ${textMap.supportEmail}`);
       } catch (error) {
         showToast(`Please copy this address: ${textMap.supportEmail}`);
